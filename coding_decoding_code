@@ -1,0 +1,33 @@
+import random  
+import string  
+
+# Generate a random string of specified length 
+def generate_random_string(length=3):   
+    return ''.join(random.choices(string.ascii_lowercase, k=length))  
+code=str(input("Enter True for coding and False for Decoding: "))
+st=str(input("Enter Your message : "))
+words=st.split(" ")
+if(code=="True"):
+    nword=[]
+    for word in words:
+        if len(word)>=3:
+            r1 = generate_random_string()  
+            r2 = generate_random_string()  
+            # r1="dfg"
+            # r2="klj"
+            stnew=r1+word[1:] + word[0]+r2
+            nword.append(stnew)
+        else:
+            nword.append(word[::-1])
+    print(" ".join(nword))
+else:
+    nword=[]
+    for word in words:
+        if len(word)>=3:
+            stnew=word[3:-3]
+            stnew=stnew[-1]+stnew[:-1]
+            nword.append(stnew)
+        else:
+            nword.append(word[::-1])
+    print(" ".join(nword))
+        
